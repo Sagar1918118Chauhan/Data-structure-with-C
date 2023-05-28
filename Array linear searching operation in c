@@ -1,0 +1,26 @@
+#include <stdio.h>
+ 
+
+int main() {
+    int a[5]={1,2,3,4,5};
+    int SerItem,count=0;
+    printf("Enter Searching element:\n");
+    scanf("%d",&SerItem);
+     for(int i=0;i<5;i++)
+      {
+        if(a[i]==SerItem)
+        {
+            count++;
+        }
+     }
+     if(count==1)
+     {
+          printf("Element %d are found in array:",SerItem);
+     }
+     else
+     {
+         printf("Element %d are found in array:",SerItem);
+     }
+  
+ return 0;
+}
