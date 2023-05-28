@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int size =5;
+    int arr[size];
+  printf("Enter element in array:");
+     for (int i = 0; i < size; i++)
+      {
+         scanf("%d",&arr[i]);
+      }
+       printf("Before deletion:\n" );
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    
+    
+    
+      size--;
+     
+      printf("\nAfter Deletion:\n" );
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf( "\nEnd elememt delete successfully" );
+    
+
+ return 0;
+}
