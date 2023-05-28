@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int size =5;
+    int arr[size];
+  printf("Enter element in array:");
+     for (int i = 0; i < size; i++)
+      {
+         scanf("%d",&arr[i]);
+      }
+       printf("Before deletion:\n" );
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    
+    int loc;
+    printf("\nEnter location(Index no.) where you want delete element:\n");
+    scanf("%d",&loc);
+     
+    for(int i=loc;i<size;i++)
+    {
+        arr[i]=arr[i+1];
+        
+    }
+      size--;
+     
+      printf("\nAfter Deletion:\n" );
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\nLocation %d element  is deleted successfully:",loc );
+    
+
+ return 0;
+}
