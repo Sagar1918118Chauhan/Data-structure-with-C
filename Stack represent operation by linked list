@@ -1,0 +1,70 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct Node* top = NULL;
+
+void push();
+void pop();
+void show();
+
+int main() {
+    int choice;
+    while(1) {
+        printf("\nPerform Stack operation:\n");
+        printf("Choose the operation\n1. For push\n2. For pop\n3. For show\n4. For Exit\n");
+        printf("Please Enter your choice: ");
+        scanf("%d", &choice);
+        switch(choice) {
+            case 1: push(); break;
+            case 2: pop(); break;
+            case 3: show(); break;
+            case 4: exit(0);
+            default: printf("Invalid choice\n");
+        }
+    }
+}
+
+void push() {
+    int x;
+    printf("Enter item to insert in stack: ");
+    scanf("%d", &x);
+
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = x;
+    newNode->next = top;
+    top = newNode;
+    printf("Element %d pushed to stack successfully\n", x);
+}
+
+void pop() {
+    if (top == NULL) {
+        printf("Stack  is Empty\n");
+        return;
+    }
+
+    struct Node* temp = top;
+    int poppedElement = temp->data;
+    top = top->next;
+    free(temp);
+    printf("Element %d popped from stack successfully\n", poppedElement);
+}
+
+void show() {
+    if (top == NULL) {
+        printf("Stack is Empty\n");
+        return;
+    }
+
+    struct Node* temp = top;
+    printf("Elements present in Stack:\n");
+    while (temp != NULL) {
+        printf("%d\t", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
