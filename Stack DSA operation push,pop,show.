@@ -1,0 +1,76 @@
+ /*Stack Data structure 
+ 1.pusp operation
+ 2.pop  operation
+ 3.show/display operation*/
+ #include<stdio.h>
+ #include<stdlib.h>
+ #define size 4
+int top=-1,a[size];
+void push();
+void pop();
+void show();
+int main()
+{
+    int choice;
+    while(1)
+    {
+        printf("\nPerform Stack operation:\n");
+        printf("Choose the operation\n1. For push\n2.For pop\n3.For show\n4.For Exit");
+        printf("\nPlease Enter your choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1: push(); break;
+             case 2: pop(); break;
+              case 3: show(); break;
+               case 4: exit(0);
+               default: printf("Invalid choice");
+        }
+        
+    }
+}
+void push()
+{
+   int x;
+   
+    if(top==size-1)
+    {
+        printf("\nStack is full:");
+    }
+    else
+    {    printf("Enter item for insert in stack:");
+         scanf("%d",&x);
+         top=top+1;
+         a[top]=x;
+          
+    }
+    
+}
+void pop()
+{
+    if(top==-1)
+    {
+        printf("\nStack is Empty");
+    }
+    else
+    {
+        printf("Element %d pop from stack  successfully",a[top]);
+        top=top-1;
+        
+    }
+}
+void show()
+{     
+ if(top==-1)
+    {
+        printf("\nStack is Empty");
+    }
+    else
+    {    printf("Element present in Stack:\n");
+        for(int i=top;i>=0;i--)
+        {
+            printf("%d\t",a[i]);
+        }
+    }
+    
+}
