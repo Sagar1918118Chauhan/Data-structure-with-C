@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+// Define the structure of SLL Node
+class NodeSLL {
+    int data;
+    NodeSLL next;
+
+    // Constructor for creating a new node
+    public NodeSLL(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+public class SLLdemo {
+    NodeSLL head = null; // Head of the linked list
+
+    // Method to create a singly linked list
+    void CreateSLL() {
+        Scanner sc = new Scanner(System.in);
+        char ch;
+        NodeSLL endNode = null;
+
+        do {
+            System.out.println("Enter the data:");
+            int item = sc.nextInt();
+            NodeSLL newNode = new NodeSLL(item); // Create a new node
+
+            if (head == null) {
+                head = newNode; // Initialize head if it's the first node
+                endNode = newNode; // Set endNode to the first node
+            } else {
+                endNode.next = newNode; // Link the new node to the end
+                endNode = newNode; // Update the end node
+            }
+
+            System.out.println("Do you want to add more node elements? (y/n): ");
+            ch = sc.next().charAt(0); // Corrected typo (charAt() instead of chatAt())
+
+        } while (ch == 'y' || ch == 'Y'); // Loop until the user inputs 'n'
+    }
+
+    // Method to traverse and display the singly linked list
+    void TraverseSLL() {
+        if (head == null) {
+            System.out.println("The list is empty.");
+            return;
+        }
+
+        NodeSLL temp = head;
+        System.out.print("SLL => ");
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    public static void main(String[] args) {
+        SLLdemo list = new SLLdemo();
+        list.CreateSLL();  // Create the linked list
+        list.TraverseSLL(); // Traverse and display the linked list
+    }
+}
